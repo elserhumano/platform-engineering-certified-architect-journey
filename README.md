@@ -90,7 +90,6 @@ This dashboard showcases the standardized enterprise self-service catalog, featu
 
 ![Backstage Core Catalog](./assets/backstage-templates.png)
 
-
 ### 🔹 2. GitOps Continuous Reconciliation Loop (ArgoCD Engine)
 This screen confirms the successful target state synchronization of the application layer. The system continuously tracks the master repository to prevent infrastructure drift.
 
