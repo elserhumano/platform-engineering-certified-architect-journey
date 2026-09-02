@@ -65,5 +65,16 @@ Throughout this platform engineering journey, I have successfully executed and d
 - [x] Provision a local multi-tenant developer platform via Backstage IDP.
 - [x] Standardize infrastructure lifecycle patterns using decoupled Terraform remote states.
 - [x] Bootstrapp and verify GitOps engine loops with ArgoCD Core systems.
-- [ ] Implement multi-cluster control plane architectures (Hub-and-Spoke enterprise pattern simulation).
+- [x] Implement multi-cluster control plane architectures (Hub-and-Spoke enterprise pattern simulation).
 
+---
+
+## 🖼️ Visual Proof & Platform Dashboards
+
+### 🔹 1. Multi-Template Core Catalog (Backstage IDP)
+This dashboard showcases the standardized enterprise self-service catalog, featuring both decoupled golden paths natively active inside the cluster control layer.
+![Backstage Core Catalog](./assets/backstage-templates.png)
+
+### 🔹 2. GitOps Continuous Reconciliation Loop (ArgoCD Engine)
+This screen confirms the successful target state synchronization of the application layer. The system continuously tracks the master repository to prevent infrastructure drift.
+![ArgoCD Active Sync Status](./assets/argocd-success-green.png)
