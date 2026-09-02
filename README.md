@@ -23,6 +23,14 @@ The core objective of this hands-on laboratory was to eliminate infrastructure d
  - Backstage IDP (Node v22)                          - ArgoCD (v2.9.4)
  - Dynamic Software Catalogs                         - Continuous Reconciliation Loops
  - Automated Code Generation                         - Secure State Remote Backend (K8s)
+                                                             │
+                                                             ▼ [ App-of-Apps Loop ]
+                                                    [ k3d-idp-gitops-manifests ]
+                                                             │
+                                                             ▼ (Continuous Sync)
+                                                    [ k3d-idp-demo-service-v4 ]
+                                                    (2 Active Running Pods 🍏)
+
 ```
 
 ---
@@ -42,6 +50,12 @@ The platform logic functions via modular, decoupled repositories automatically p
 - **Role:** Controls platform runtime components and core infrastructure.
 - **Technology Stack:** Terraform (>= 1.5.0) paired with the HashiCorp Helm Provider.
 - **Platform Automation:** Automates the lifecycle of the ArgoCD engine directly inside the K3d master nodes. Features an **Enterprise Remote Backend Architecture** that securely preserves and encripts the state file (`.tfstate`) natively inside the cluster control database (`kube-system`), avoiding critical secrets leaks on Git versioning.
+
+### 🎡 3. GitOps Control Plane Layer (State Declarations)
+- **Repository Name:** `k3d-idp-gitops-manifests`
+- **Role:** Functions as the single source of truth and root registry for the entire ecosystem.
+- **Technology Stack:** ArgoCD Declarative Custom Resources (`kind: Application`).
+- **Platform Automation:** Implements the industry-standard **App-of-Apps architectural pattern**. It continuously scans my GitHub organization state to dynamically trigger reconciliation loops, eliminating manual CLI modifications (`ClickOps`) and automatically enforcing self-healing routines across all running cluster nodes.
 
 ---
 
